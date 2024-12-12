@@ -1,18 +1,22 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {assets} from '../assets/assets'
 import { Link, NavLink } from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
     const [visible, setVisible] = useState(false);
+    const { setShowSearch } = useContext(ShopContext);
 
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px[9vw]'>
         <div className='flex bg-darkbrown w-full absolute left-0 py-2 sm:py-2.5 justify-center uppercase'>
-            <p className='text-lightgray text-[10px] sm:text-[14px] font-medium'>Free Shipping for orders over 50$</p>
+            <p className='text-lightgray text-[10px] sm:text-[14px] font-medium'>Free Shipping for orders over 200$</p>
         </div>
 
         <div className='flex justify-between items-center py-5 font-medium pt-[41px] sm:pt-[51px] pb-[10px]'>
-            <img src={assets.logo} className='w-28 sm:w-40' alt=""/>
+            <Link to="/">
+                <img src={assets.logo} className='w-28 sm:w-40' alt=""/>
+            </Link>
 
             <ul className='hidden md:flex gap-5 text-sm text-darkbrown'>
                 <NavLink to="/" className="flex flex-col items-center gap-1">
@@ -37,7 +41,7 @@ const Navbar = () => {
             </ul>
 
             <div className='flex items-center gap-4 sm:gap-6'>
-                <img src={assets.search_icon} className="w-[18px] sm:w-5 cursor-pointer" alt="search" />
+                <img onClick={() => setShowSearch(true)} src={assets.search_icon} className="w-[18px] sm:w-5 cursor-pointer" alt="search" />
 
                 <div className='group relative'>
                     <img src={assets.profile_icon} className="w-[18px] sm:w-5 cursor-pointer" alt="profile" />
@@ -65,7 +69,7 @@ const Navbar = () => {
                             <p>Back</p>
                         </div>
 
-                        <NavLink className="py-2 pl-6 mt-2" to='/' onClick={() => setVisible(false)}>HOME</NavLink>
+                        <NavLink className="py-2 pl-6" to='/' onClick={() => setVisible(false)}>HOME</NavLink>
                         <NavLink className="py-2 pl-6" to='/collection' onClick={() => setVisible(false)}>COLLECTIONS</NavLink>
                         <NavLink className="py-2 pl-6" to='/about' onClick={() => setVisible(false)}>ABOUT US</NavLink>
                         <NavLink className="py-2 pl-6" to='/contact' onClick={() => setVisible(false)}>CONTACT</NavLink>
