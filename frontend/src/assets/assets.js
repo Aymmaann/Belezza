@@ -76,6 +76,8 @@ import cross_icon from './cross_icon.png'
 import sale_icon from './sale_icon.png'
 import rating_star from './rating_star.png'
 import logo_dark from './logo_dark.png'
+import rev_1 from './rev_1.png'
+import rev_2 from './rev_2.png'
 
 export const assets = {
     logo,
@@ -98,7 +100,9 @@ export const assets = {
     cross_icon,
     sale_icon,
     rating_star,
-    logo_dark
+    logo_dark,
+    rev_1,
+    rev_2
 }
 
 export const products = [
