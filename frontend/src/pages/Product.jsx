@@ -82,7 +82,7 @@ const Product = () => {
                     }
                   </div>
               </div>
-              <button onClick={() => addToCart(productData._id,size)} className='bg-darkbrown text-gray-100 font-medium  px-8 py-3 hover:bg-lightpink hover:text-darkbrown rounded transition-all ease-in-out duration-200'>Add to Cart</button>
+              <button onClick={() => addToCart(productData._id,size)} className='bg-darkbrown text-gray-100 font-medium px-16 py-3 hover:bg-lightpink hover:text-darkbrown rounded-lg transition-all ease-in-out duration-200'>Add to Cart</button>
               <hr className='mt-8 sm:w-4/5'/>
               <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
                   <p>100% Original Product.</p>

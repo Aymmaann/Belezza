@@ -78,6 +78,7 @@ import rating_star from './rating_star.png'
 import logo_dark from './logo_dark.png'
 import rev_1 from './rev_1.png'
 import rev_2 from './rev_2.png'
+import emptyCart from './emptyCart.png'
 
 export const assets = {
     logo,
@@ -102,7 +103,8 @@ export const assets = {
     rating_star,
     logo_dark,
     rev_1,
-    rev_2
+    rev_2,
+    emptyCart
 }
 
 export const products = [
