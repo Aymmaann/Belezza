@@ -6,7 +6,7 @@ import RelatedProducts from '../components/RelatedProducts';
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false)
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
@@ -17,7 +17,7 @@ const Product = () => {
       if(item._id === productId) {
         setProductData(item);
         setImage(item.image[0]);
-        console.log(item);
+        setSize('');
         return null;
       }
     })
@@ -70,7 +70,7 @@ const Product = () => {
                 <span className='ml-3 text-xl line-through text-gray-400'>{currency}{productData.price + (productData.price/100)*30}</span>
               </p>
 
-              <p className='mt-5 md:w-4/5 text-gray-500'>{productData.description}</p>
+              <p className='mt-5 md:w-4/5 text-darkbrown'>{productData.description}</p>
 
               <div className='flex flex-col gap-4 my-8'>
                   <p>Select Size</p>
@@ -82,7 +82,7 @@ const Product = () => {
                     }
                   </div>
               </div>
-              <button className='bg-darkbrown text-gray-100 text-sm px-8 py-3 hover:bg-lightpink hover:text-darkbrown rounded transition-all ease-in-out duration-200'>Add to Cart</button>
+              <button onClick={() => addToCart(productData._id,size)} className='bg-darkbrown text-gray-100 font-medium  px-8 py-3 hover:bg-lightpink hover:text-darkbrown rounded transition-all ease-in-out duration-200'>Add to Cart</button>
               <hr className='mt-8 sm:w-4/5'/>
               <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
                   <p>100% Original Product.</p>
@@ -111,15 +111,15 @@ const Product = () => {
                         <img src={assets.rev_1} className='w-12 rounded-full' alt="" />
                         <p className='text-[16px] font-semibold'>Sophia Carter</p>
                       </div>
-                      <div className='flex items-center gap-1 mt-2'>
+                      <div className='flex items-center gap-1 mt-3'>
                         <img src={assets.rating_star} alt="" className="w-4" />
                         <img src={assets.rating_star} alt="" className="w-4" />
                         <img src={assets.rating_star} alt="" className="w-4" />
                         <img src={assets.rating_star} alt="" className="w-4" />
                         <img src={assets.rating_star} alt="" className="w-4" />
-                        <p className='font-medium text-[14px] pl-2 pt-[1px]'>4.8</p>
                       </div>
-                      <p className='mt-4'>"I absolutely love this product! The quality is exceptional, and the attention to detail is remarkable. It’s clear that a lot of thought went into designing something both stylish and durable. I’ve already recommended it to all my friends—definitely worth every penny!"</p>
+                      <p className='font-medium text-[14px] pt-2'>23rd October 2024</p>
+                      <p className='mt-4 text-[16px] leading-6'>"I absolutely love this product! The quality is exceptional, and the attention to detail is remarkable. It’s clear that a lot of thought went into designing something both stylish and durable. I’ve already recommended it to all my friends—definitely worth every penny!"</p>
                      </div>
 
                      <hr className='mt-8 '/>
@@ -129,15 +129,15 @@ const Product = () => {
                         <img src={assets.rev_2} className='w-12 rounded-full' alt="" />
                         <p className='text-[16px] font-semibold'>Ethan Rodriguez</p>
                       </div>
-                      <div className='flex items-center gap-1 mt-2'>
+                      <div className='flex items-center gap-1 mt-3'>
                         <img src={assets.rating_star} alt="" className="w-4" />
                         <img src={assets.rating_star} alt="" className="w-4" />
                         <img src={assets.rating_star} alt="" className="w-4" />
                         <img src={assets.rating_star} alt="" className="w-4" />
                         <img src={assets.rating_star} alt="" className="w-4" />
-                        <p className='font-medium text-[14px] pl-2 pt-[1px]'>4.7</p>
                       </div>
-                      <p className='mt-4'>"This is hands down one of the best purchases I’ve made! The material feels premium, and it fits perfectly. The customer service was also fantastic, ensuring a smooth shopping experience. I’m so impressed, I’ll be back for more soon!"</p>
+                      <p className='font-medium text-[14px] pt-2'>8th September 2024</p>
+                      <p className='mt-4 text-[16px] leading-6'>"This is hands down one of the best purchases I’ve made! The material feels premium, and it fits perfectly. The customer service was also fantastic, ensuring a smooth shopping experience. I’m so impressed, I’ll be back for more soon!"</p>
                      </div>
                   </div>
                 )}
