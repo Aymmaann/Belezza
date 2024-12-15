@@ -30,7 +30,7 @@ const Navbar = () => {
                 </NavLink>
 
                 <NavLink to="/about" className="flex flex-col items-center gap-1">
-                    <p>ABOUT US</p>
+                    <p>ABOUT</p>
                     <hr className='w-2/4 border-none h-[1.5px] bg-darkbrown hidden'/>
                 </NavLink>
 
@@ -44,7 +44,9 @@ const Navbar = () => {
                 <img onClick={() => setShowSearch(true)} src={assets.search_icon} className="w-[18px] sm:w-5 cursor-pointer" alt="search" />
 
                 <div className='group relative'>
-                    <img src={assets.profile_icon} className="w-[18px] sm:w-5 cursor-pointer" alt="profile" />
+                    <Link to='/login'>
+                        <img src={assets.profile_icon} className="w-[18px] sm:w-5 cursor-pointer" alt="profile" />
+                    </Link>
                     <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
                         <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-lightgray text-darkbrown rounded-lg'>
                             <p className='cursor-pointer hover:text-orange-800 text-[14px]'>My Profile</p>
@@ -71,7 +73,7 @@ const Navbar = () => {
 
                         <NavLink className="py-2 pl-6" to='/' onClick={() => setVisible(false)}>HOME</NavLink>
                         <NavLink className="py-2 pl-6" to='/collection' onClick={() => setVisible(false)}>COLLECTIONS</NavLink>
-                        <NavLink className="py-2 pl-6" to='/about' onClick={() => setVisible(false)}>ABOUT US</NavLink>
+                        <NavLink className="py-2 pl-6" to='/about' onClick={() => setVisible(false)}>ABOUT</NavLink>
                         <NavLink className="py-2 pl-6" to='/contact' onClick={() => setVisible(false)}>CONTACT</NavLink>
                     </div>
                 </div>

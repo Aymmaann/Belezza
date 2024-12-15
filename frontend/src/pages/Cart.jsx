@@ -48,8 +48,8 @@ const Cart = () => {
                       </div>
                     </div>
                     <input onChange={(e) => e.target.value === '' || e.target.value === '0'? null : updateQuantity(item._id, item.size, Number(e.target.value))} className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 rounded font-medium' type="number" min={1} defaultValue={item.quantity} />
-                    <div onClick={() => updateQuantity(item._id, item.size, 0)} className='p-3 rounded-full hover:bg-lightgray transition-all ease-in-out duration-100'>
-                      <img src={assets.bin_icon} className='w-4 mr-4 sm:w-5 cursor-pointer' alt="" />
+                    <div onClick={() => updateQuantity(item._id, item.size, 0)} className='p-3 rounded-full hover:bg-lightpink transition-all ease-in-out duration-100'>
+                      <img src={assets.bin_icon} className='w-4 sm:w-5 cursor-pointer' alt="" />
                     </div>
                   </div>
                 )
